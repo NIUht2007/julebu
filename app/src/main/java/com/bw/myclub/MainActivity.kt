@@ -16,8 +16,12 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+<<<<<<< HEAD
 
 
 
+=======
+        println(1)
+>>>>>>> a40679b3e0583604309782942635bdab375625a8
     }
 }
