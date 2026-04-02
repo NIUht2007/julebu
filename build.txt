@@ -1,0 +1,237 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.9/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :app:checkDebugAarMetadata
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :app:mergeLibDexDebug UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:mergeDebugNativeLibs UP-TO-DATE
+> Task :app:stripDebugDebugSymbols UP-TO-DATE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :app:kaptGenerateStubsDebugKotlin
+
+> Task :app:kaptDebugKotlin
+注: ARouter::Compiler The user has configuration the module name, it was [app]
+注: ARouter::Compiler >>> AutowiredProcessor init. <<<
+注: ARouter::Compiler The user has configuration the module name, it was [app]
+注: ARouter::Compiler >>> InterceptorProcessor init. <<<
+注: ARouter::Compiler The user has configuration the module name, it was [app]
+注: ARouter::Compiler >>> RouteProcessor init. <<<
+警告: 以下选项未被任何处理程序识别: '[AROUTER_MODULE_NAME, kapt.kotlin.generated]'
+
+> Task :app:compileDebugKotlin FAILED
+e: Supertypes of the following classes cannot be resolved. Please make sure you have the required dependencies in the classpath:
+    class com.scwang.smart.refresh.layout.SmartRefreshLayout, unresolved supertypes: android.support.v4.view.NestedScrollingParent
+Adding -Xextended-compiler-checks argument might provide additional information.
+
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/bw/myclub/MainActivity.kt:13:24 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/bw/myclub/MainActivity.kt:14:64 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/App.kt:10:19 Unresolved reference: common
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/App.kt:11:19 Unresolved reference: common
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/App.kt:12:19 Unresolved reference: sdk
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/App.kt:13:19 Unresolved reference: sdk
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/App.kt:23:13 Unresolved reference: BuildConfig
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/App.kt:33:9 Unresolved reference: IMManager
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/App.kt:49:37 Unresolved reference: BuildConfig
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/App.kt:59:63 Unresolved reference: BuildConfig
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/ClubActivityDetailActivity.kt:27:24 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/ClubActivityDetailActivity.kt:30:30 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/ClubActivityDetailActivity.kt:31:36 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/ClubActivityDetailActivity.kt:32:29 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/ClubActivityDetailActivity.kt:33:33 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/ClubActivityDetailActivity.kt:34:34 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/ClubActivityDetailActivity.kt:35:35 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/ClubFragment.kt:31:37 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/ClubFragment.kt:34:42 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/ClubFragment.kt:35:43 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/ClubFragment.kt:46:23 Cannot access 'android.support.v4.view.NestedScrollingParent' which is a supertype of 'com.scwang.smart.refresh.layout.SmartRefreshLayout'. Check your module classpath for missing or conflicting dependencies
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/ClubFragment.kt:55:33 Unresolved reference: observe
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/ClubFragment.kt:56:43 Unresolved reference: it
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/adapter/ClubAdapter.kt:69:9 'refresh' hides member of supertype 'PagingDataAdapter' and needs 'override' modifier
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubActivityPagingSource.kt:13:26 Unresolved reference: success
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubActivityPagingSource.kt:14:43 Unresolved reference: data
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubActivityPagingSource.kt:14:51 Not enough information to infer type variable T
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubActivityPagingSource.kt:22:53 Unresolved reference: message
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubPagingSource.kt:13:26 Unresolved reference: success
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubPagingSource.kt:14:38 Unresolved reference: data
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubPagingSource.kt:14:46 Not enough information to infer type variable T
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubPagingSource.kt:22:53 Unresolved reference: message
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubViewModel.kt:40:30 Unresolved reference: success
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubViewModel.kt:41:30 Unresolved reference: data
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubViewModel.kt:43:38 Unresolved reference: message
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubViewModel.kt:56:30 Unresolved reference: success
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubViewModel.kt:59:38 Unresolved reference: message
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubViewModel.kt:72:30 Unresolved reference: success
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubViewModel.kt:75:38 Unresolved reference: message
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubViewModel.kt:88:30 Unresolved reference: success
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubViewModel.kt:89:30 Unresolved reference: data
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubViewModel.kt:91:38 Unresolved reference: message
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubViewModel.kt:104:30 Unresolved reference: success
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubViewModel.kt:107:38 Unresolved reference: message
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubViewModel.kt:120:30 Unresolved reference: success
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubViewModel.kt:123:38 Unresolved reference: message
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubViewModel.kt:136:30 Unresolved reference: success
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/club/viewmodel/ClubViewModel.kt:139:38 Unresolved reference: message
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/IMManager.kt:25:26 Type mismatch: inferred type is `<no name provided>` but RequestCallback<LoginInfo!>! was expected
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/IMManager.kt:25:63 Unresolved reference: LoginCallback
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/IMManager.kt:26:17 'onSuccess' overrides nothing
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/IMManager.kt:30:17 'onFailed' overrides nothing
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/IMManager.kt:34:17 'onException' overrides nothing
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/IMManager.kt:44:14 Unresolved reference: setCallback
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/IMManager.kt:44:63 Unresolved reference: LogoutCallback
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/IMManager.kt:45:17 'onSuccess' overrides nothing
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/IMManager.kt:49:17 'onFailed' overrides nothing
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/IMManager.kt:53:17 'onException' overrides nothing
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/IMManager.kt:61:90 Unresolved reference: isLoggedIn
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/IMManager.kt:66:90 Unresolved reference: account
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/MyChatP2PActivity.kt:7:31 Unresolved reference: chatkit
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/MyChatP2PActivity.kt:8:31 Unresolved reference: chatkit
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/MyChatP2PActivity.kt:12:40 Unresolved reference: ChatFragment
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/MyChatP2PActivity.kt:16:24 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/MyChatP2PActivity.kt:19:45 Unresolved reference: ChatKitIntent
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/MyChatP2PActivity.kt:20:46 Unresolved reference: ChatKitIntent
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/MyChatP2PActivity.kt:26:24 Unresolved reference: ChatFragment
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/MyChatP2PActivity.kt:26:81 Unresolved reference: chatkit
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/MyChatP2PActivity.kt:28:22 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/MyChatP2PActivity.kt:35:101 Unresolved reference: SessionType
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/MyChatTeamActivity.kt:5:31 Unresolved reference: chatkit
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/MyChatTeamActivity.kt:6:31 Unresolved reference: chatkit
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/MyChatTeamActivity.kt:10:40 Unresolved reference: ChatFragment
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/MyChatTeamActivity.kt:14:24 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/MyChatTeamActivity.kt:17:44 Unresolved reference: ChatKitIntent
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/MyChatTeamActivity.kt:18:46 Unresolved reference: ChatKitIntent
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/MyChatTeamActivity.kt:24:24 Unresolved reference: ChatFragment
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/MyChatTeamActivity.kt:24:80 Unresolved reference: chatkit
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/im/MyChatTeamActivity.kt:26:22 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/MallFragment.kt:34:37 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/MallFragment.kt:37:42 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/MallFragment.kt:38:43 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/MallFragment.kt:39:40 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/MallFragment.kt:50:23 Cannot access 'android.support.v4.view.NestedScrollingParent' which is a supertype of 'com.scwang.smart.refresh.layout.SmartRefreshLayout'. Check your module classpath for missing or conflicting dependencies
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/MallFragment.kt:80:44 Unresolved reference: observe
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/MallFragment.kt:81:47 Unresolved reference: it
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/MallFragment.kt:85:38 Unresolved reference: observe
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/MallFragment.kt:86:47 Unresolved reference: it
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/GoodsPagingSource.kt:13:26 Unresolved reference: success
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/GoodsPagingSource.kt:14:38 Unresolved reference: data
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/GoodsPagingSource.kt:14:46 Not enough information to infer type variable T
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/GoodsPagingSource.kt:22:53 Unresolved reference: message
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/GoodsSearchPagingSource.kt:13:26 Unresolved reference: success
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/GoodsSearchPagingSource.kt:14:38 Unresolved reference: data
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/GoodsSearchPagingSource.kt:14:46 Not enough information to infer type variable T
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/GoodsSearchPagingSource.kt:22:53 Unresolved reference: message
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/MallViewModel.kt:50:30 Unresolved reference: success
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/MallViewModel.kt:51:30 Unresolved reference: data
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/MallViewModel.kt:53:38 Unresolved reference: message
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/MallViewModel.kt:66:30 Unresolved reference: success
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/MallViewModel.kt:69:38 Unresolved reference: message
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/MallViewModel.kt:82:30 Unresolved reference: success
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/MallViewModel.kt:83:30 Unresolved reference: data
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/MallViewModel.kt:85:38 Unresolved reference: message
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/MallViewModel.kt:98:30 Unresolved reference: success
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/MallViewModel.kt:99:30 Unresolved reference: data
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/MallViewModel.kt:101:38 Unresolved reference: message
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/MallViewModel.kt:114:30 Unresolved reference: success
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/MallViewModel.kt:115:30 Unresolved reference: data
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/MallViewModel.kt:117:38 Unresolved reference: message
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/MallViewModel.kt:130:30 Unresolved reference: success
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/MallViewModel.kt:133:38 Unresolved reference: message
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/MallViewModel.kt:146:30 Unresolved reference: success
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/MallViewModel.kt:149:38 Unresolved reference: message
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/OrderPagingSource.kt:13:26 Unresolved reference: success
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/OrderPagingSource.kt:14:39 Unresolved reference: data
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/OrderPagingSource.kt:14:47 Not enough information to infer type variable T
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mall/viewmodel/OrderPagingSource.kt:22:53 Unresolved reference: message
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/message/MessageFragment.kt:8:31 Unresolved reference: chatkit
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/message/MessageFragment.kt:12:52 Unresolved reference: ConversationListFragment
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/message/MessageFragment.kt:19:37 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/message/MessageFragment.kt:22:36 Unresolved reference: ConversationListFragment
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/message/MessageFragment.kt:24:22 Unresolved reference: R
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:9:44 Unresolved reference: Events
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:13:16 Unresolved reference: android
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:17:36 Expression 'AuthMMKV' of type 'AuthMMKV' cannot be invoked as a function. The function 'invoke()' is not found
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:18:36 Expression 'UserMMKV' of type 'UserMMKV' cannot be invoked as a function. The function 'invoke()' is not found
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:40:31 Unresolved reference: getUserId
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:41:33 Unresolved reference: getUsername
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:43:9 Unresolved reference: tv_username
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:43:21 Variable expected
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:44:9 Unresolved reference: tv_user_id
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:44:20 Variable expected
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:49:9 Unresolved reference: user_info_section
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:54:9 Unresolved reference: rl_my_garage
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:59:9 Unresolved reference: rl_flow_recharge
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:64:9 Unresolved reference: rl_stolen_report
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:69:9 Unresolved reference: rl_after_sales
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:74:9 Unresolved reference: rl_booking
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:79:9 Unresolved reference: rl_store
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:84:9 Unresolved reference: rl_care_service
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:89:9 Unresolved reference: rl_fix_online
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:94:9 Unresolved reference: rl_one_click_rescue
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:99:9 Unresolved reference: rl_message_settings
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:104:9 Unresolved reference: rl_bind_wechat
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:109:9 Unresolved reference: rl_change_password
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:114:9 Unresolved reference: rl_logout
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:120:9 Unresolved reference: rl_wiki
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:125:9 Unresolved reference: rl_faq
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:130:9 Unresolved reference: rl_share
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:135:9 Unresolved reference: rl_car_usage
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:142:18 Unresolved reference. None of the following candidates is applicable because of receiver type mismatch: 
+public fun kotlin.text.StringBuilder /* = java.lang.StringBuilder */.clear(): kotlin.text.StringBuilder /* = java.lang.StringBuilder */ defined in kotlin.text
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:143:18 Unresolved reference. None of the following candidates is applicable because of receiver type mismatch: 
+public fun kotlin.text.StringBuilder /* = java.lang.StringBuilder */.clear(): kotlin.text.StringBuilder /* = java.lang.StringBuilder */ defined in kotlin.text
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:146:18 Suspend function 'post' should be called only from a coroutine or another suspend function
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/mine/MineFragment.kt:146:23 Unresolved reference: Events
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/motocircle/ArticleListFragment.kt:43:23 Cannot access 'android.support.v4.view.NestedScrollingParent' which is a supertype of 'com.scwang.smart.refresh.layout.SmartRefreshLayout'. Check your module classpath for missing or conflicting dependencies
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/motocircle/GuideListFragment.kt:43:23 Cannot access 'android.support.v4.view.NestedScrollingParent' which is a supertype of 'com.scwang.smart.refresh.layout.SmartRefreshLayout'. Check your module classpath for missing or conflicting dependencies
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/motocircle/PostListFragment.kt:43:23 Cannot access 'android.support.v4.view.NestedScrollingParent' which is a supertype of 'com.scwang.smart.refresh.layout.SmartRefreshLayout'. Check your module classpath for missing or conflicting dependencies
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/motocircle/adapter/ArticleAdapter.kt:67:5 'refresh' in 'PagingDataAdapter' is final and cannot be overridden
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/motocircle/adapter/GuideAdapter.kt:71:5 'refresh' in 'PagingDataAdapter' is final and cannot be overridden
+e: file:///D:/Androidbao/julebu/app/src/main/java/com/jczy/cyclone/club/motocircle/adapter/PostAdapter.kt:81:5 'refresh' in 'PagingDataAdapter' is final and cannot be overridden
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileDebugKotlin'.
+> A failure occurred while executing org.jetbrains.kotlin.compilerRunner.GradleCompilerRunnerWithWorkers$GradleKotlinCompilerWorkAction
+   > Compilation error. See log for more details
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.9/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 1m 38s
+31 actionable tasks: 4 executed, 27 up-to-date

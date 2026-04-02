@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- 标题 -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="活动标题"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <!-- 描述 -->
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="活动描述"
+        android:textSize="16sp"
+        android:textColor="@color/black" />
+
+    <!-- 时间 -->
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="时间"
+        android:textSize="14sp"
+        android:textColor="@color/gray" />
+
+    <!-- 地点 -->
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="地点"
+        android:textSize="14sp"
+        android:textColor="@color/gray" />
+
+    <!-- 报名人数 -->
+    <TextView
+        android:id="@+id/join_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="0人已报名"
+        android:textSize="14sp"
+        android:textColor="@color/gray" />
+
+    <!-- 报名按钮 -->
+    <Button
+        android:id="@+id/join_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="立即报名"
+        android:textSize="16sp"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white" />
+
+</LinearLayout>

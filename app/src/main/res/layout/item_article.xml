@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    android:padding="16dp"
+    android:layout_marginBottom="8dp">
+
+    <!-- 封面 -->
+    <ImageView
+        android:id="@+id/cover"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:src="@mipmap/ic_launcher"
+        android:scaleType="centerCrop" />
+
+    <!-- 内容 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="12dp"
+        android:orientation="vertical">
+
+        <!-- 标题 -->
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="文章标题"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:maxLines="2"
+            android:ellipsize="end" />
+
+        <!-- 作者 -->
+        <TextView
+            android:id="@+id/author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="作者"
+            android:textSize="12sp"
+            android:textColor="@color/gray" />
+
+        <!-- 统计数据 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- 阅读数 -->
+            <TextView
+                android:id="@+id/read_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0阅读"
+                android:textSize="12sp"
+                android:textColor="@color/gray" />
+
+            <!-- 点赞数 -->
+            <TextView
+                android:id="@+id/like_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="0赞"
+                android:textSize="12sp"
+                android:textColor="@color/gray" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

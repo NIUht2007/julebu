@@ -1,23 +1,41 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt.android)
 }
 
 android {
-    namespace 'com.bw.myclub'
+    namespace 'com.jczy.cyclone.club'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.bw.myclub"
-        minSdk 28
-        targetSdk 34
-        versionCode 1
-        versionName "1.0"
+        applicationId "com.jczy.cyclone.club"
+        minSdk 24
+        targetSdk 33
+        versionCode 115
+        versionName "1.1.5"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        // ARouter 配置（需同时在 javaCompileOptions 和 kapt 中配置）
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+        // JPush 配置占位符
+        manifestPlaceholders = [
+            JPUSH_PKGNAME: applicationId,
+            JPUSH_APPKEY : "your_jpush_appkey",  // 替换为实际的 JPush AppKey
+            JPUSH_CHANNEL: "developer-default"
+        ]
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -29,6 +47,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = '11'
+    }
+    buildFeatures {
+        buildConfig = true
     }
 }
 
@@ -43,6 +64,9 @@ dependencies {
     // Lifecycle & ViewModel
     implementation libs.androidx.lifecycle.viewmodel
     implementation libs.androidx.lifecycle.runtime
+    implementation libs.androidx.lifecycle.livedata
+    implementation libs.androidx.fragment
+    implementation 'androidx.activity:activity-ktx:1.8.0'
     
     // Retrofit & OkHttp
     implementation libs.retrofit
@@ -57,7 +81,98 @@ dependencies {
     implementation libs.coroutines.core
     implementation libs.coroutines.android
     
+    // Hilt 依赖注入
+    implementation libs.hilt.android
+    kapt libs.hilt.android.compiler
+
+    // ARouter 路由（排除 Support 库）
+    implementation(libs.arouter) {
+        exclude group: 'com.android.support', module: 'support-v4'
+    }
+    kapt libs.arouter.compiler
+    
+    // MMKV 本地存储
+    implementation libs.mmkv
+    
+    // Paging3 分页
+    implementation libs.paging3
+    
+    // Glide 图片加载
+    implementation libs.glide
+    kapt libs.glide.compiler
+    
+    // SmartRefreshLayout 刷新控件（新版）
+    implementation libs.smartrefreshlayout
+    implementation libs.smartrefreshlayout.header
+    
+    // BaseRecyclerViewAdapterHelper
+    implementation libs.brvah
+    
+    // 轮播图（Banner 新版，替代旧 ConvenientBanner）
+    implementation libs.banner
+    
+    // 图片选择器（新版 io.github.lucksiege）
+    implementation libs.pictureselector
+    
+    // AndroidAutoSize 屏幕适配
+    implementation libs.androidautosize
+    
+    // 版本更新（XUpdate）
+    implementation libs.xupdate
+    
+    // 二维码（ZXing，替代 BGAQRCode）
+    implementation libs.zxing.core
+    implementation libs.zxing.android
+    
+    // PDF 查看（排除 Support 库）
+    implementation(libs.pdfviewer) {
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'support-compat'
+    }
+    
+    // 网易云信（最新版 basesdk 包含所有功能）
+    implementation libs.nimBasesdk
+    
+    // 第三方服务
+    implementation libs.jpush
+    implementation libs.jverification
+    implementation libs.jshare
+    
+    // 友盟统计（9.x版本 common 已包含 analytics 功能，无需单独引入）
+    implementation libs.umeng.common
+    
+    implementation libs.bugly
+    implementation libs.exoplayer
+    
+    // 高德地图（navi-3dmap 合并包 + search）
+    implementation libs.amap.navi.map
+    implementation libs.amap.search
+    
+    implementation libs.wechat
+    
+    // 测试
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
+}
+
+// ARouter 需要在 kapt 阶段也提供模块名称
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+
+// 将 AROUTER_MODULE_NAME 注入到所有 JavaCompile task（包括 Hilt 生成的 hiltJavaCompile）
+afterEvaluate {
+    android.applicationVariants.all { variant ->
+        def variantName = variant.name.capitalize()
+        def hiltTask = tasks.findByName("hiltJavaCompile${variantName}")
+        if (hiltTask != null) {
+            hiltTask.options.compilerArgs.add("-AAROUTER_MODULE_NAME=${project.getName()}")
+        }
+    }
+}
+tasks.withType(JavaCompile).configureEach {
+    options.compilerArgs.add("-AAROUTER_MODULE_NAME=${project.getName()}")
 }

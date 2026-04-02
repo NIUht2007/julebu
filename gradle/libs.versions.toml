@@ -10,10 +10,44 @@ material = "1.10.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
 lifecycle = "2.6.2"
+fragment = "1.6.2"
 retrofit = "2.9.0"
 okhttp = "4.11.0"
 moshi = "1.15.0"
 coroutines = "1.7.3"
+hilt = "2.48"
+arouter = "1.5.2"
+arouterCompiler = "1.5.2"
+mmkv = "1.3.0"
+paging3 = "3.1.1"
+glide = "4.16.0"
+# SmartRefreshLayout 1.1.3 是最后一个稳定版，无 android.support 依赖
+smartrefreshlayout = "1.1.3"
+brvah = "3.0.7"
+# ConvenientBanner 已迁移到 com.youth.banner
+banner = "2.0.9"
+# PictureSelector 已迁移到 io.github.lucksiege
+pictureselector = "v3.11.2"
+androidautosize = "1.2.1"
+# appupdate 已迁移到 com.github.xuexiangjys:XUpdate
+xupdate = "2.1.5"
+# 网易云信升级到最新 10.9.80
+nim = "10.9.80"
+jpush = "5.0.3"
+jverification = "3.0.0"
+jshare = "2.0.0"
+# 友盟最新版本（common 9.x 已集成 analytics）
+umengCommon = "9.9.1"
+bugly = "4.1.9"
+exoplayer = "2.18.0"
+# 高德地图已合并为 navi-3dmap 组合包
+amapNaviMap = "9.8.2_3dmap9.8.2"
+amapSearch = "9.7.0"
+# BGAQRCode 替换为 journeyapps/zxing-android-embedded
+zxingAndroid = "4.3.0"
+zxingCore = "3.5.1"
+pdfviewer = "3.1.0-beta.1"
+wechat = "6.8.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -26,6 +60,8 @@ androidx-activity = { group = "androidx.activity", name = "activity", version.re
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 androidx-lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle" }
+androidx-lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle" }
+androidx-fragment = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 retrofit-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
@@ -33,8 +69,48 @@ okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor",
 moshi = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshi" }
 coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+arouter = { group = "com.alibaba", name = "arouter-api", version.ref = "arouter" }
+arouter-compiler = { group = "com.alibaba", name = "arouter-compiler", version.ref = "arouter" }
+mmkv = { group = "com.tencent", name = "mmkv", version.ref = "mmkv" }
+paging3 = { group = "androidx.paging", name = "paging-runtime-ktx", version.ref = "paging3" }
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "glide" }
+# SmartRefreshLayout 1.1.x 包名为 com.scwang.smartrefresh（2.x 才换包名）
+smartrefreshlayout = { group = "com.scwang.smartrefresh", name = "SmartRefreshLayout", version.ref = "smartrefreshlayout" }
+smartrefreshlayout-header = { group = "com.scwang.smartrefresh", name = "SmartRefreshHeader", version.ref = "smartrefreshlayout" }
+brvah = { group = "com.github.CymChad", name = "BaseRecyclerViewAdapterHelper", version.ref = "brvah" }
+# Banner 新包名（替代 ConvenientBanner）
+banner = { group = "com.youth.banner", name = "banner", version.ref = "banner" }
+# PictureSelector 新包名
+pictureselector = { group = "io.github.lucksiege", name = "pictureselector", version.ref = "pictureselector" }
+androidautosize = { group = "me.jessyan", name = "autosize", version.ref = "androidautosize" }
+# XUpdate（替代旧的 xuexiangjys:appupdate）
+xupdate = { group = "com.github.xuexiangjys", name = "XUpdate", version.ref = "xupdate" }
+# 网易云信最新版（合并版，包含所有功能）
+nimBasesdk = { group = "com.netease.nimlib", name = "basesdk", version.ref = "nim" }
+
+# 第三方服务
+jpush = { group = "cn.jiguang.sdk", name = "jpush", version.ref = "jpush" }
+jverification = { group = "cn.jiguang.sdk", name = "jverification", version.ref = "jverification" }
+jshare = { group = "cn.jiguang.sdk", name = "jshare", version.ref = "jshare" }
+# 友盟最新版
+umeng-common = { group = "com.umeng.umsdk", name = "common", version.ref = "umengCommon" }
+bugly = { group = "com.tencent.bugly", name = "crashreport", version.ref = "bugly" }
+exoplayer = { group = "com.google.android.exoplayer", name = "exoplayer-core", version.ref = "exoplayer" }
+# 高德地图：navi-3dmap 合并包
+amap-navi-map = { group = "com.amap.api", name = "navi-3dmap", version.ref = "amapNaviMap" }
+amap-search = { group = "com.amap.api", name = "search", version.ref = "amapSearch" }
+# ZXing 二维码（替代 BGAQRCode）
+zxing-core = { group = "com.google.zxing", name = "core", version.ref = "zxingCore" }
+zxing-android = { group = "com.journeyapps", name = "zxing-android-embedded", version.ref = "zxingAndroid" }
+pdfviewer = { group = "com.github.barteksc", name = "android-pdf-viewer", version.ref = "pdfviewer" }
+wechat = { group = "com.tencent.mm.opensdk", name = "wechat-sdk-android", version.ref = "wechat" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 

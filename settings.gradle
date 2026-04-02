@@ -1,23 +1,30 @@
 pluginManagement {
     repositories {
-        google {
-            content {
-                includeGroupByRegex("com\\.android.*")
-                includeGroupByRegex("com\\.google.*")
-                includeGroupByRegex("androidx.*")
-            }
-        }
-        mavenCentral()
+        // 华为云镜像优先
+        maven { url 'https://mirrors.huaweicloud.com/repository/google' }
+        maven { url 'https://mirrors.huaweicloud.com/repository/maven' }
+        maven { url 'https://mirrors.huaweicloud.com/repository/gradle-plugin' }
         gradlePluginPortal()
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        google()
-        mavenCentral()
+        // 华为云镜像（完全覆盖 Google + Maven Central）
+        maven { url 'https://mirrors.huaweicloud.com/repository/google' }
+        maven { url 'https://mirrors.huaweicloud.com/repository/maven' }
+        maven { url 'https://mirrors.huaweicloud.com/repository/gradle-plugin' }
+        // JitPack（GitHub 项目依赖，如 XUpdate、BRVAH 等）
+        maven { url 'https://jitpack.io' }
+        // Maven Central 备用（友盟等）
+        maven { url 'https://repo1.maven.org/maven2/' }
+        // 高德地图官方仓库
+        maven { url 'https://maven.amap.com/repository/maven-public/' }
+        // 网易云信官方仓库
+        maven { url 'https://netease-repo.oss-cn-hangzhou.aliyuncs.com/yunxin_maven/' }
     }
 }
 
-rootProject.name = "my club"
+rootProject.name = "julebu"
 include ':app'

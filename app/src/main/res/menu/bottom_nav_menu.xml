@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_moto_circle"
+        android:icon="@drawable/ic_moto_circle"
+        android:title="玩车圈"
+        android:checked="true" />
+    <item
+        android:id="@+id/nav_club"
+        android:icon="@drawable/ic_club"
+        android:title="俱乐部" />
+    <item
+        android:id="@+id/nav_mall"
+        android:icon="@drawable/ic_mall"
+        android:title="商城" />
+    <item
+        android:id="@+id/nav_message"
+        android:icon="@drawable/ic_message"
+        android:title="消息" />
+    <item
+        android:id="@+id/nav_mine"
+        android:icon="@drawable/ic_mine"
+        android:title="我的" />
+</menu>
