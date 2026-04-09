@@ -36,8 +36,9 @@ nim = "10.9.80"
 jpush = "5.0.3"
 jverification = "3.0.0"
 jshare = "2.0.0"
-# 友盟最新版本（common 9.x 已集成 analytics）
+# 友盟最新版本（common 9.x 已集成 analytics，asms 为必需模块）
 umengCommon = "9.9.1"
+umengAsms = "1.8.0"
 bugly = "4.1.9"
 exoplayer = "2.18.0"
 # 高德地图已合并为 navi-3dmap 组合包
@@ -48,6 +49,7 @@ zxingAndroid = "4.3.0"
 zxingCore = "3.5.1"
 pdfviewer = "3.1.0-beta.1"
 wechat = "6.8.0"
+gson = "2.10.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -95,8 +97,9 @@ nimBasesdk = { group = "com.netease.nimlib", name = "basesdk", version.ref = "ni
 jpush = { group = "cn.jiguang.sdk", name = "jpush", version.ref = "jpush" }
 jverification = { group = "cn.jiguang.sdk", name = "jverification", version.ref = "jverification" }
 jshare = { group = "cn.jiguang.sdk", name = "jshare", version.ref = "jshare" }
-# 友盟最新版
+# 友盟最新版（common + asms 为必需模块）
 umeng-common = { group = "com.umeng.umsdk", name = "common", version.ref = "umengCommon" }
+umeng-asms = { group = "com.umeng.umsdk", name = "asms", version.ref = "umengAsms" }
 bugly = { group = "com.tencent.bugly", name = "crashreport", version.ref = "bugly" }
 exoplayer = { group = "com.google.android.exoplayer", name = "exoplayer-core", version.ref = "exoplayer" }
 # 高德地图：navi-3dmap 合并包
@@ -107,6 +110,8 @@ zxing-core = { group = "com.google.zxing", name = "core", version.ref = "zxingCo
 zxing-android = { group = "com.journeyapps", name = "zxing-android-embedded", version.ref = "zxingAndroid" }
 pdfviewer = { group = "com.github.barteksc", name = "android-pdf-viewer", version.ref = "pdfviewer" }
 wechat = { group = "com.tencent.mm.opensdk", name = "wechat-sdk-android", version.ref = "wechat" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

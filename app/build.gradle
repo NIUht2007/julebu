@@ -71,11 +71,13 @@ dependencies {
     // Retrofit & OkHttp
     implementation libs.retrofit
     implementation libs.retrofit.moshi
+    implementation libs.retrofit.gson
     implementation libs.okhttp
     implementation libs.okhttp.logging
-    
-    // Moshi
+
+    // Moshi & Gson
     implementation libs.moshi
+    implementation libs.gson
     
     // Coroutines
     implementation libs.coroutines.core
@@ -138,8 +140,9 @@ dependencies {
     implementation libs.jverification
     implementation libs.jshare
     
-    // 友盟统计（9.x版本 common 已包含 analytics 功能，无需单独引入）
+    // 友盟统计（9.x版本 common + asms 为必需模块）
     implementation libs.umeng.common
+    implementation libs.umeng.asms
     
     implementation libs.bugly
     implementation libs.exoplayer

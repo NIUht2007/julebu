@@ -47,26 +47,29 @@ class GoodsAdapter : PagingDataAdapter<Goods, GoodsAdapter.GoodsViewHolder>(GOOD
         private val sales: TextView = itemView.findViewById(R.id.sales)
         
         fun bind(goods: Goods) {
-            // 加载图片
+            // 加载封面图
             Glide.with(itemView.context)
-                .load(goods.image)
+                .load(goods.coverUrl())
+                .placeholder(R.drawable.ic_launcher_background)
                 .into(image)
-            
-            // 设置名称
-            name.text = goods.name
-            
-            // 设置价格
-            if (goods.isSeckill) {
-                price.text = "¥${goods.seckillPrice}"
-                originalPrice.text = "¥${goods.originalPrice}"
+
+            // 商品标题
+            name.text = goods.displayTitle()
+
+            // 价格
+            val displayPrice = goods.displayPrice()
+            val originalPriceVal = goods.displayOriginalPrice()
+            price.text = "¥${String.format("%.2f", displayPrice)}"
+            if (originalPriceVal > 0 && originalPriceVal > displayPrice) {
+                originalPrice.text = "¥${String.format("%.2f", originalPriceVal)}"
                 originalPrice.visibility = View.VISIBLE
             } else {
-                price.text = "¥${goods.price}"
                 originalPrice.visibility = View.GONE
             }
-            
-            // 设置销量
-            sales.text = "已售${goods.sales}"
+
+            // 销量
+            val sold = if (goods.monthSalesNum > 0) goods.monthSalesNum else goods.soldNum
+            sales.text = "已售${sold}"
         }
     }
 }

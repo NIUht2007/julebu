@@ -1,6 +1,7 @@
 package com.jczy.cyclone.club.mall
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.SearchView
 import android.widget.Toast
@@ -15,6 +16,7 @@ import com.jczy.cyclone.club.common.BaseFragment
 import com.jczy.cyclone.club.common.UiState
 import com.jczy.cyclone.club.mall.adapter.GoodsAdapter
 import com.jczy.cyclone.club.mall.viewmodel.MallViewModel
+import com.jczy.cyclone.club.mmkv.AuthMMKV
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -29,6 +31,10 @@ class MallFragment : BaseFragment() {
     private lateinit var searchView: SearchView
     private lateinit var adapter: GoodsAdapter
     private var keyword: String = ""
+
+    companion object {
+        private const val TAG = "MallFragment"
+    }
 
     override fun getLayoutId(): Int = R.layout.fragment_mall
 
@@ -58,6 +64,8 @@ class MallFragment : BaseFragment() {
     }
 
     override fun initData() {
+        val token = AuthMMKV.openApiAccessToken
+        Log.d(TAG, "商城加载: openApiAccessToken=${if (token.isNullOrBlank()) "空!" else "有值(长度=${token.length})"}")
         loadGoodsList()
 
         // 收集操作状态

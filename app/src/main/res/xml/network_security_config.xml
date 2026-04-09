@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- 允许明文传输（HTTP）用于测试服务器 -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">test-zsjc-openapi.qimoyun.com</domain>
+    </domain-config>
+</network-security-config>

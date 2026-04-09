@@ -10,6 +10,9 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:allowBackup="true"
@@ -20,16 +23,60 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyClub"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:name=".App"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        android:persistent="false"
+        android:largeHeap="true"
+        android:usesCleartextTraffic="false">
+
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.MyClub">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- 登录页面 -->
+        <activity
+            android:name=".login.LoginActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MyClub"
+            android:windowSoftInputMode="adjustPan" />
+
+        <!-- 友盟统计 SDK -->
+        <meta-data android:name="UMENG_APPKEY" android:value="your_umeng_appkey" />
+
+        <!-- 网易云信 SDK 配置（最新版 basesdk 包含所有功能，需单独配置）-->
+        <!-- 注意：在 build.gradle 中已启用 applicationId -->
+        <activity android:name="com.netease.nimlib.a.b.a.b" />
+        <activity android:name="com.netease.nimlib.a.b.a.c" android:exported="false" />
+        <activity android:name="com.netease.nimlib.a.b.a.d" android:exported="false" />
+        <activity android:name="com.netease.nimlib.a.b.a.e" android:exported="false" />
+        <activity android:name="com.netease.nimlib.a.b.a.f" android:exported="false" />
+        <activity android:name="com.netease.nimlib.a.b.a.g" android:exported="false" />
+        <activity android:name="com.netease.nimlib.a.b.a.h" android:exported="false" />
+        <activity android:name="com.netease.nimlib.a.b.a.i" android:exported="false" />
+        <activity android:name="com.netease.nimlib.a.b.a.j" android:exported="false" />
+        <activity android:name="com.netease.nimlib.a.b.a.k" android:exported="false" />
+        <activity android:name="com.netease.nimlib.a.b.a.l" android:exported="false" />
+        <service android:name="com.netease.nimlib.a.b.a.m" android:enabled="true" android:exported="false" />
+        <receiver android:name="com.netease.nimlib.a.b.a.n" android:enabled="true" android:exported="false" />
+
+        <!-- 推送通知接收 -->
+        <receiver android:name="com.netease.nimlib.a.b.a.o" android:enabled="true" android:exported="false" />
+        
+        <!-- ARouter 路由配置 -->
+        <meta-data android:name="com.alibaba.arouter.routes" android:value="/*club*/+/**" />
+
+        <!-- JPush 配置（在 build.gradle 中已配置，Manifest 不需要显式配置）-->
+
+        <!-- 高德地图 SDK 配置 -->
+        <meta-data android:name="com.amap.api.v2.api.KeySecuritySetting" android:value="your_amap_security_code" />
+
     </application>
 
 </manifest>

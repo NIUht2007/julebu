@@ -1,145 +1,232 @@
 ﻿package com.jczy.cyclone.club.network
 
-import com.jczy.cyclone.club.network.ApiResponse
-import com.jczy.cyclone.club.mall.model.Goods
-import com.jczy.cyclone.club.mall.model.Order
-import com.jczy.cyclone.club.mall.model.Address
-import com.jczy.cyclone.club.mall.model.Coupon
-import retrofit2.http.GET
-import retrofit2.http.Query
+import okhttp3.RequestBody
+import retrofit2.http.Body
+import retrofit2.http.POST
 
+/**
+ * 商城 API（奇墨云 OpenApi 网关）
+ * BASE_URL = http://test-zsjc-openapi.qimoyun.com/
+ *
+ * 所有请求统一 POST 到 gateway.do，由 @OpenApiService 注解指定 service 类型。
+ * OpenApiHeaderInterceptor 会自动注入：service / token / requestNo / version / partnerId / 签名。
+ *
+ * 商城登录接口（sysLoginSmsAuto）获取到 accessKey/secretKey/token 后
+ * 存入 AuthMMKV.openApiAccessToken / openApiAccessKey / openApiSecretKey。
+ */
 interface MallApi {
-    // 获取商品列表
-    @GET("api/v1/goods/list")
-    suspend fun getGoodsList(
-        @Query("page") page: Int,
-        @Query("pageSize") pageSize: Int,
-        @Query("categoryId") categoryId: String? = null
-    ): ApiResponse<List<Goods>>
-    
-    // 获取商品详情
-    @GET("api/v1/goods/detail")
-    suspend fun getGoodsDetail(@Query("id") id: String): ApiResponse<Goods>
-    
-    // 搜索商品
-    @GET("api/v1/goods/search")
-    suspend fun searchGoods(
-        @Query("keyword") keyword: String,
-        @Query("page") page: Int,
-        @Query("pageSize") pageSize: Int
-    ): ApiResponse<List<Goods>>
-    
-    // 获取购物车列表
-    @GET("api/v1/cart/list")
-    suspend fun getCartList(): ApiResponse<List<Any>>
-    
-    // 添加到购物车
-    @GET("api/v1/cart/add")
-    suspend fun addToCart(
-        @Query("goodsId") goodsId: String,
-        @Query("quantity") quantity: Int
-    ): ApiResponse<Boolean>
-    
-    // 从购物车删除
-    @GET("api/v1/cart/delete")
-    suspend fun deleteFromCart(@Query("id") id: String): ApiResponse<Boolean>
-    
-    // 更新购物车数量
-    @GET("api/v1/cart/update")
-    suspend fun updateCartQuantity(
-        @Query("id") id: String,
-        @Query("quantity") quantity: Int
-    ): ApiResponse<Boolean>
-    
-    // 创建订单
-    @GET("api/v1/order/create")
-    suspend fun createOrder(
-        @Query("addressId") addressId: String,
-        @Query("goodsList") goodsList: String,
-        @Query("couponId") couponId: String? = null,
-        @Query("payType") payType: Int
-    ): ApiResponse<String> // 返回订单 ID
-    
-    // 获取订单列表
-    @GET("api/v1/order/list")
-    suspend fun getOrderList(
-        @Query("status") status: Int? = null,
-        @Query("page") page: Int,
-        @Query("pageSize") pageSize: Int
-    ): ApiResponse<List<Order>>
-    
-    // 获取订单详情
-    @GET("api/v1/order/detail")
-    suspend fun getOrderDetail(@Query("id") id: String): ApiResponse<Order>
-    
-    // 取消订单
-    @GET("api/v1/order/cancel")
-    suspend fun cancelOrder(@Query("id") id: String): ApiResponse<Boolean>
-    
-    // 确认收货
-    @GET("api/v1/order/confirm")
-    suspend fun confirmOrder(@Query("id") id: String): ApiResponse<Boolean>
-    
-    // 申请售后
-    @GET("api/v1/order/afterSales")
-    suspend fun applyAfterSales(
-        @Query("orderId") orderId: String,
-        @Query("reason") reason: String
-    ): ApiResponse<Boolean>
-    
-    // 获取收货地址列表
-    @GET("api/v1/address/list")
-    suspend fun getAddressList(): ApiResponse<List<Address>>
-    
-    // 添加收货地址
-    @GET("api/v1/address/add")
-    suspend fun addAddress(
-        @Query("name") name: String,
-        @Query("phone") phone: String,
-        @Query("province") province: String,
-        @Query("city") city: String,
-        @Query("district") district: String,
-        @Query("detail") detail: String,
-        @Query("isDefault") isDefault: Boolean
-    ): ApiResponse<Boolean>
-    
-    // 编辑收货地址
-    @GET("api/v1/address/edit")
-    suspend fun editAddress(
-        @Query("id") id: String,
-        @Query("name") name: String,
-        @Query("phone") phone: String,
-        @Query("province") province: String,
-        @Query("city") city: String,
-        @Query("district") district: String,
-        @Query("detail") detail: String,
-        @Query("isDefault") isDefault: Boolean
-    ): ApiResponse<Boolean>
-    
-    // 删除收货地址
-    @GET("api/v1/address/delete")
-    suspend fun deleteAddress(@Query("id") id: String): ApiResponse<Boolean>
-    
-    // 获取优惠券列表
-    @GET("api/v1/coupon/list")
-    suspend fun getCouponList(): ApiResponse<List<Coupon>>
-    
-    // 获取豆豆（积分）信息
-    @GET("api/v1/bean/info")
-    suspend fun getBeanInfo(): ApiResponse<Any>
-    
-    // 获取收藏列表
-    @GET("api/v1/collect/list")
-    suspend fun getCollectList(
-        @Query("page") page: Int,
-        @Query("pageSize") pageSize: Int
-    ): ApiResponse<List<Goods>>
-    
-    // 收藏商品
-    @GET("api/v1/collect/add")
-    suspend fun collectGoods(@Query("goodsId") goodsId: String): ApiResponse<Boolean>
-    
-    // 取消收藏
-    @GET("api/v1/collect/delete")
-    suspend fun cancelCollect(@Query("goodsId") goodsId: String): ApiResponse<Boolean>
+
+    // ==================== 商城登录（获取 OpenApi token） ====================
+
+    /** 使用主业务 token 自动登录商城，获取商城独立的 accessKey/secretKey/token */
+    @OpenApiService(service = "sysLoginSmsAuto")
+    @POST("gateway.do")
+    suspend fun sysLoginSmsAuto(@Body body: RequestBody): MallLoginResponse
+
+    // ==================== 首页 / Banner ====================
+
+    /** 首页分组（一级车型目录） */
+    @OpenApiService(service = "mallGroupIndexList")
+    @POST("gateway.do")
+    suspend fun mallGroupIndexList(): MallBaseResponse
+
+    /** 首页商品分组及列表（购车/改装/周边文创） */
+    @OpenApiService(service = "mallGoodsGroupList")
+    @POST("gateway.do")
+    suspend fun mallGoodsGroupList(): MallBaseResponse
+
+    /** 商城 Banner/广告 */
+    @OpenApiService(service = "cmallAdInfo")
+    @POST("gateway.do")
+    suspend fun cmallAdInfo(@Body body: RequestBody): MallBaseResponse
+
+    /** 商城版块配置（热门活动/品推荐/秒杀） */
+    @OpenApiService(service = "cmallConfList")
+    @POST("gateway.do")
+    suspend fun cmallConfList(): MallBaseResponse
+
+    // ==================== 商品 ====================
+
+    /** c端商品分页列表（通用） */
+    @OpenApiService(service = "mallGoodsInfoPageList")
+    @POST("gateway.do")
+    suspend fun mallGoodsInfoPageList(@Body body: RequestBody): MallBaseResponse
+
+    /** 首页顶部目录按组查询商品 */
+    @OpenApiService(service = "mallGroupGoodsList")
+    @POST("gateway.do")
+    suspend fun mallGroupGoodsList(@Body body: RequestBody): MallBaseResponse
+
+    /** 商品详情 */
+    @OpenApiService(service = "mallGoodsInfoInfo")
+    @POST("gateway.do")
+    suspend fun mallGoodsInfoInfo(@Body body: RequestBody): MallBaseResponse
+
+    /** 搜索 - 热门关键词 */
+    @OpenApiService(service = "goodsHotSearchList")
+    @POST("gateway.do")
+    suspend fun goodsHotSearchList(): MallBaseResponse
+
+    /** 搜索 - 关键词列表 */
+    @OpenApiService(service = "goodsSearchKeywordList")
+    @POST("gateway.do")
+    suspend fun goodsSearchKeywordList(@Body body: RequestBody): MallBaseResponse
+
+    /** 商品评价列表 */
+    @OpenApiService(service = "goodsEvaluateList")
+    @POST("gateway.do")
+    suspend fun goodsEvaluateList(@Body body: RequestBody): MallBaseResponse
+
+    /** 商品评价统计 */
+    @OpenApiService(service = "goodsEvaluateInfo")
+    @POST("gateway.do")
+    suspend fun goodsEvaluateInfo(@Body body: RequestBody): MallBaseResponse
+
+    /** 推荐商品（订单详情/支付成功后） */
+    @OpenApiService(service = "cMallRecommendGoodsList")
+    @POST("gateway.do")
+    suspend fun cMallRecommendGoodsList(@Body body: RequestBody): MallBaseResponse
+
+    // ==================== 购物车 ====================
+
+    /** 添加购物车 */
+    @OpenApiService(service = "orderShoppingCartAdd")
+    @POST("gateway.do")
+    suspend fun orderShoppingCartAdd(@Body body: RequestBody): MallBaseResponse
+
+    /** 删除购物车商品 */
+    @OpenApiService(service = "orderShoppingCartDelete")
+    @POST("gateway.do")
+    suspend fun orderShoppingCartDelete(@Body body: RequestBody): MallBaseResponse
+
+    /** 购物车列表 */
+    @OpenApiService(service = "orderShoppingCartList")
+    @POST("gateway.do")
+    suspend fun orderShoppingCartList(@Body body: RequestBody): MallBaseResponse
+
+    /** 购物车商品总数量 */
+    @OpenApiService(service = "orderShoppingCartNum")
+    @POST("gateway.do")
+    suspend fun orderShoppingCartNum(): MallBaseResponse
+
+    // ==================== 订单 ====================
+
+    /** 提交订单 */
+    @OpenApiService(service = "orderCreate")
+    @POST("gateway.do")
+    suspend fun orderCreate(@Body body: RequestBody): MallBaseResponse
+
+    /** 订单列表（分页） */
+    @OpenApiService(service = "orderInfoPageList")
+    @POST("gateway.do")
+    suspend fun orderInfoPageList(@Body body: RequestBody): MallBaseResponse
+
+    /** 订单详情 */
+    @OpenApiService(service = "orderInfoDetail")
+    @POST("gateway.do")
+    suspend fun orderInfoDetail(@Body body: RequestBody): MallBaseResponse
+
+    /** 取消订单 */
+    @OpenApiService(service = "orderInfoCancel")
+    @POST("gateway.do")
+    suspend fun orderInfoCancel(@Body body: RequestBody): MallBaseResponse
+
+    /** 确认收货 */
+    @OpenApiService(service = "orderInfoReceive")
+    @POST("gateway.do")
+    suspend fun orderInfoReceive(@Body body: RequestBody): MallBaseResponse
+
+    /** 申请售后/退款 */
+    @OpenApiService(service = "orderApplyAfterSales")
+    @POST("gateway.do")
+    suspend fun orderApplyAfterSales(@Body body: RequestBody): MallBaseResponse
+
+    /** 订单支付（收银台提交） */
+    @OpenApiService(service = "orderPayCash")
+    @POST("gateway.do")
+    suspend fun orderPayCash(@Body body: RequestBody): MallBaseResponse
+
+    /** 查询支付状态 */
+    @OpenApiService(service = "orderPayStatus")
+    @POST("gateway.do")
+    suspend fun orderPayStatus(@Body body: RequestBody): MallBaseResponse
+
+    // ==================== 收货地址 ====================
+
+    /** 地址列表 */
+    @OpenApiService(service = "memberShopAddressList")
+    @POST("gateway.do")
+    suspend fun memberShopAddressList(): MallBaseResponse
+
+    /** 新增地址 */
+    @OpenApiService(service = "memberShopAddressCreate")
+    @POST("gateway.do")
+    suspend fun memberShopAddressCreate(@Body body: RequestBody): MallBaseResponse
+
+    /** 修改地址 */
+    @OpenApiService(service = "memberShopAddressUpdate")
+    @POST("gateway.do")
+    suspend fun memberShopAddressUpdate(@Body body: RequestBody): MallBaseResponse
+
+    /** 删除地址 */
+    @OpenApiService(service = "memberShopAddressDelete")
+    @POST("gateway.do")
+    suspend fun memberShopAddressDelete(@Body body: RequestBody): MallBaseResponse
+
+    // ==================== 收藏 ====================
+
+    /** 加入收藏 */
+    @OpenApiService(service = "goodsFavoriteAdd")
+    @POST("gateway.do")
+    suspend fun goodsFavoriteAdd(@Body body: RequestBody): MallBaseResponse
+
+    /** 取消收藏（收藏列表） */
+    @OpenApiService(service = "goodsFavoriteCancel")
+    @POST("gateway.do")
+    suspend fun goodsFavoriteCancel(@Body body: RequestBody): MallBaseResponse
+
+    // ==================== 优惠券 ====================
+
+    /** 优惠券分页列表 */
+    @OpenApiService(service = "couponPageList")
+    @POST("gateway.do")
+    suspend fun couponPageList(@Body body: RequestBody): MallBaseResponse
+
+    /** 下单选择优惠券 */
+    @OpenApiService(service = "placeOrderCouponSelect")
+    @POST("gateway.do")
+    suspend fun placeOrderCouponSelect(@Body body: RequestBody): MallBaseResponse
 }
+
+/** 分页数据包装（商城接口常见格式，兼容 rows/records 两种字段名） */
+data class MallPageData<T>(
+    val rows: List<T>? = null,
+    val records: List<T>? = null,
+    val totalRows: Int = 0,
+    val total: Long = 0,
+    val size: Long = 0,
+    val current: Long = 0,
+    val pages: Long = 0
+) {
+    /** 优先取 rows，为空则取 records，确保兼容后端两种返回格式 */
+    fun getItems(): List<T> = rows ?: records ?: emptyList()
+}
+
+/** 商城接口通用返回（原始 Map，由 Repository 层解析具体字段） */
+data class MallBaseResponse(
+    val code: String? = null,
+    val success: Boolean = false,
+    val message: String? = null,
+    val detail: String? = null,
+    val data: com.google.gson.JsonElement? = null
+)
+
+/** 商城登录接口返回 */
+data class MallLoginResponse(
+    val code: String? = null,
+    val success: Boolean = false,
+    val message: String? = null,
+    val accessKey: String? = null,
+    val secretKey: String? = null,
+    val token: String? = null
+)
